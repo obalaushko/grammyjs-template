@@ -1,0 +1,33 @@
+import mongoose from "npm:mongoose@8.6.1";
+import { ENV_VARIABLES } from "../constants/global.ts";
+import LOGGER from "../helpers/logger.ts";
+
+const DB = ENV_VARIABLES.DB;
+const USER = ENV_VARIABLES.DB_USER;
+const PASSWORD = ENV_VARIABLES.DB_PASSWORD;
+const DB_NAME = ENV_VARIABLES.DB_NAME;
+const HOST = ENV_VARIABLES.DB_HOST;
+
+const dbUrl = `${DB}${USER}:${PASSWORD}@${HOST}/${DB_NAME}`;
+
+const connectDb = async () => {
+  try {
+    mongoose.set("strictQuery", false);
+    const mongoDbConnection = await mongoose.connect(dbUrl, {});
+    if (mongoDbConnection.connection.readyState === 1) {
+      LOGGER.info(`[connectDb][DB connected succesfully]`, {
+        metadata: "",
+        sendLog: true,
+      });
+    } else {
+      LOGGER.error(`[connectDb][DB connection failed]`, { metadata: "" });
+    }
+  } catch (error: any) {
+    // setTimeout(connectDb, 5000);
+    LOGGER.error(`[connectDb][DB connection failed]`, {
+      metadata: { error: error, stack: error.stack.toString() },
+    });
+  }
+};
+
+export { connectDb };
