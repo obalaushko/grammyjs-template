@@ -1,4 +1,4 @@
-import ENVS from "../helpers/loadEnv.ts";
+import ENVS from "../helpers/loadEnv.js";
 
 export const BOT_RIGHTS = {
   is_anonymous: true,

@@ -1,6 +1,6 @@
-import mongoose from "npm:mongoose@8.6.1";
-import { ENV_VARIABLES } from "../constants/global.ts";
-import LOGGER from "../helpers/logger.ts";
+import mongoose from "mongoose";
+import { ENV_VARIABLES } from "../constants/global.js";
+import LOGGER from "../helpers/logger.js";
 
 const DB = ENV_VARIABLES.DB;
 const USER = ENV_VARIABLES.DB_USER;

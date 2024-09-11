@@ -1,25 +1,24 @@
-import { BOT_RIGHTS, ENV_VARIABLES } from './../constants/global.ts';
+import { BOT_RIGHTS, ENV_VARIABLES } from './../constants/global.js';
 import {
     Bot,
     GrammyError,
     HttpError,
     session,
-} from 'https://deno.land/x/grammy@v1.30.0/mod.ts';
-import type { ParseModeFlavor } from 'https://deno.land/x/grammy_parse_mode@1.10.0/mod.ts';
+} from 'grammy';
+import type { ParseModeFlavor } from '@grammyjs/parse-mode';
 
-import { BotContext } from '../types/botContext.ts';
-import { limit } from 'https://deno.land/x/grammy_ratelimiter@v1.2.0/mod.ts';
-import { autoRetry } from 'https://deno.land/x/grammy_auto_retry@v2.0.2/mod.ts';
-import { apiThrottler } from 'https://deno.land/x/grammy_transformer_throttler@v1.2.1/mod.ts';
-import MSG from '../constants/messages/index.ts';
-import { hydrateReply } from 'https://deno.land/x/grammy_parse_mode@1.10.0/mod.ts';
-import { hydrate } from 'https://deno.land/x/grammy_hydrate@v1.4.1/mod.ts';
-import { globalConfig, groupConfig, outConfig } from './config/limitsConfig.ts';
-import { parseMode } from 'https://deno.land/x/grammy_parse_mode@1.10.0/transformer.ts';
-import { hydrateFiles } from 'https://deno.land/x/grammy_files@v1.1.1/mod.ts';
-import { COMMANDS } from './commands/commands.ts';
-import { conversations } from 'https://deno.land/x/grammy_conversations@v1.2.0/mod.ts';
-import LOGGER from '../helpers/logger.ts';
+import { BotContext } from '../types/botContext.js';
+import { limit } from '@grammyjs/ratelimiter';
+import { autoRetry,  } from '@grammyjs/auto-retry';
+import { apiThrottler } from '@grammyjs/transformer-throttler';
+import { hydrate } from '@grammyjs/hydrate';
+import { hydrateReply, parseMode } from '@grammyjs/parse-mode';
+import { conversations } from '@grammyjs/conversations';
+import { hydrateFiles } from '@grammyjs/files';
+import { COMMANDS } from './commands/commands.js';
+import { globalConfig, groupConfig, outConfig } from './config/limitsConfig.js';
+import MSG from '../constants/messages/index.js';
+import LOGGER from '../helpers/logger.js';
 
 const bot = new Bot<ParseModeFlavor<BotContext>>(ENV_VARIABLES.TOKEN);
 

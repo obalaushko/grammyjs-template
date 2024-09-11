@@ -1,5 +1,5 @@
-import { run } from "https://deno.land/x/grammy_runner@v2.0.3/mod.ts";
-import bot from "../bot.ts";
+import { run } from "@grammyjs/runner";
+import bot from "../bot.js";
 
 
 const runBot = () => {

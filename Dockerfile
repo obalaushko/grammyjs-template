@@ -1,11 +1,15 @@
-FROM denoland/deno:latest
+FROM node:20-alpine
 
 WORKDIR /app
 
-COPY deno.json .
+COPY package.json .
 
 COPY . .
 
-#EXPOSE 3000
+RUN npm run build
 
-CMD ["task", "start"]
+ENV NODE_ENV production
+
+EXPOSE 3000
+
+CMD npm start

@@ -1,4 +1,4 @@
-export const validateEnvs = (ENVS: { [index: string]: string }) => {
+export const validateEnvs = (ENVS: any) => {
     if (!ENVS) {
         throw new Error('Environment variables are required');
     }

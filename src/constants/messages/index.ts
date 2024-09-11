@@ -1,6 +1,6 @@
-import general from "./general.ts";
-import keyboards from "./keyboards.ts";
-import notifications from "./notifications.ts";
+import general from "./general.js";
+import keyboards from "./keyboards.js";
+import notifications from "./notifications.js";
 
 const MSG = {
     general,

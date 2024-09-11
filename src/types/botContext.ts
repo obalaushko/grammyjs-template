@@ -1,12 +1,12 @@
 import {
     HydrateFlavor,
-  } from "https://deno.land/x/grammy_hydrate@v1.4.1/mod.ts";
-import { Context, SessionFlavor } from "https://deno.land/x/grammy@v1.30.0/mod.ts";
+  } from "@grammyjs/hydrate";
+import { Context, SessionFlavor } from "grammy";
 import {
     type Conversation,
     type ConversationFlavor,
-} from "https://deno.land/x/grammy_conversations@v1.2.0/mod.ts"
-import { FileFlavor } from 'https://deno.land/x/grammy_files@v1.1.1/mod.ts';
+} from "@grammyjs/conversations"
+import { FileFlavor } from '@grammyjs/files';
 
 export interface SessionData {
     spamCounter: number;

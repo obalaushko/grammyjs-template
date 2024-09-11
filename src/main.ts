@@ -1,9 +1,10 @@
-import { runBot } from './bot/config/runnner.ts';
-import { ENV_VARIABLES } from './constants/global.ts';
-import { connectDb } from './db/connectDb.ts';
-import ENVS from "./helpers/loadEnv.ts";
-import LOGGER from './helpers/logger.ts';
-import { validateEnvs } from './validateEnvs.ts';
+
+import { runBot } from './bot/config/runnner.js';
+import { ENV_VARIABLES } from './constants/global.js';
+import { connectDb } from './db/connectDb.js';
+import ENVS from "./helpers/loadEnv.js";
+import LOGGER from './helpers/logger.js';
+import { validateEnvs } from './validateEnvs.js';
 
 validateEnvs(ENVS);
 
